@@ -33,3 +33,6 @@ CREATE INDEX poi_gix ON poi using gist(way);
 CREATE INDEX poi_topo_gix ON poi_topo using gist(way);
 CREATE INDEX planet_osm_point_tree_gix ON planet_osm_point USING gist (way) WHERE "natural" = 'tree';
 CREATE INDEX planet_osm_line_tree_row_gix ON planet_osm_line USING gist (way) WHERE "natural" = 'tree_row';
+CREATE INDEX planet_osm_line_barrier_gix ON planet_osm_line USING gist (way) WHERE barrier IS NOT NULL;
+CREATE INDEX planet_osm_polygon_barrier_gix ON planet_osm_polygon USING gist (way) WHERE barrier IS NOT NULL;
+CREATE INDEX planet_osm_point_barrier_gix ON planet_osm_point USING gist (way) WHERE barrier IS NOT NULL;
